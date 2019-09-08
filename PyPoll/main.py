@@ -1,10 +1,24 @@
-# Open and read csv file
-try:
-    with open("budget_data.csv", mode = "r" ) as my_file_handle:
-except IOError:
-    print("File not found or path is incorrect")
-finally:
-    print("exit")
+import os
+import csv
+
+# Open and read csv file /Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyPoll
+csvpath = os.path.join('/Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyPoll/', 'election_data.csv')
+#try:    
+with open(csvpath, "r" ) as my_file_handle:
+    # CSV reader specifies delimiter and variable that holds contents
+    csvreader = csv.reader(my_file_handle, delimiter=',')
+    
+    # Read the header row first (skip this step if there is now header)
+    csv_header = next(csvreader)
+    print(f"CSV Header: {csv_header}")
+
+    # Read each row of data after the header
+    for row in csvreader:
+        print(row)
+#except IOError:
+    #print("File not found or path is incorrect")
+#finally:
+    #print("exit")
 
 # Identify the total number of months
 
@@ -25,4 +39,4 @@ finally:
 # Greatest Increase in Profits: Feb-2012 ($1926159)
 # Greatest Decrease in Profits: Sep-2013 ($-2196167)
 
-# Save the results in a file
+# Save the results
