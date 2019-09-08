@@ -59,14 +59,11 @@ with open(output_path, 'w', newline='') as resultsfile:
 
     # Initialize csv.writer
     csvwriter = csv.writer(resultsfile, quoting=csv.QUOTE_NONE)
-    header1 = "Financial Analysis"
-    header2 = "--------------------------------"
-    total_write = "Total months: ", total_months
 
     # Write the content
     csvwriter.writerow(["Financial Analysis"])
     csvwriter.writerow(["--------------------------------"])
-    csvwriter.writerow(total_write)
+    csvwriter.writerow(["Total months: ", total_months])
     csvwriter.writerow(["Total: $", net_total_amount])
     csvwriter.writerow(["Average Change: $", round(average_change, 2)])
     csvwriter.writerow(["Greatest Increase in Profits:", highest_profit_month, "($",highest_profit_value,")"])

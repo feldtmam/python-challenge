@@ -1,5 +1,6 @@
 import os
 import csv
+from collections import Counter
 
 # Open and read csv file /Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyPoll
 csvpath = os.path.join('/Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyPoll/', 'election_data.csv')
@@ -10,33 +11,55 @@ with open(csvpath, "r" ) as my_file_handle:
     
     # Read the header row first (skip this step if there is now header)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
 
+    number_votes = 0
+    candidates = set()
+    all_votes = []
+    count_votes = {}
+    new_list = []
     # Read each row of data after the header
     for row in csvreader:
-        print(row)
-#except IOError:
-    #print("File not found or path is incorrect")
-#finally:
-    #print("exit")
+        # The total number of votes cast
+        number_votes += 1
+        all_votes.append(row[2])
 
-# Identify the total number of months
+        # A complete list of candidates who received votes
+        candidates.add(row[2])
+    
+    # The total number of votes each candidate won
+    count_votes = Counter(all_votes)
+    #print(count_votes)
+    for my_key in count_votes:
+        new_list.append([my_key, round(100*(count_votes[my_key]/number_votes), 3), count_votes[my_key]])
+        #new_dict.update({'Candidate' : my_key, 'Percentage votes': round(100*(count_votes[my_key]/number_votes), 3), 'Total votes': count_votes[my_key] })
+        #print(new_list)
+        #print(my_key, ': ', count_votes[my_key])
 
-# Calculate the net total amount of profit/loss over the entire period
 
-# Calculate the average of the changes in profit/loss over the period
+print("Election Results")
+print("-------------------------")
+print("Total Votes:", number_votes)
+for item in new_list:
+    print(item)
 
-# Identify the greatest increase in profits (date and amount) over the entire period
 
-# The greatest decrease in losses (date and amount) over the entire period
+# The percentage of votes each candidate won
 
-# Print results to the terminal
-# Financial Analysis
-# ----------------------------
-# Total Months: 86
-# Total: $38382578
-# Average  Change: $-2315.12
-# Greatest Increase in Profits: Feb-2012 ($1926159)
-# Greatest Decrease in Profits: Sep-2013 ($-2196167)
 
+
+# The winner of the election based on popular vote.
+
+# As an example, your analysis should look similar to the one below:
+
+# Election Results
+# -------------------------
+# Total Votes: 3521001
+# -------------------------
+# Khan: 63.000% (2218231)
+# Correy: 20.000% (704200)
+# Li: 14.000% (492940)
+# O'Tooley: 3.000% (105630)
+# -------------------------
+# Winner: Khan
+# -------------------------
 # Save the results
