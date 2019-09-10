@@ -3,7 +3,7 @@ import csv
 from collections import Counter
 
 # Open and read csv file /Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyPoll
-csvpath = os.path.join('/Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyPoll/', 'election_data.csv')
+csvpath = os.path.join('/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyPoll/', 'election_data.csv')
 #try:    
 with open(csvpath, "r" ) as my_file_handle:
     # CSV reader specifies delimiter and variable that holds contents
@@ -28,28 +28,48 @@ with open(csvpath, "r" ) as my_file_handle:
     
     # The total number of votes each candidate won
     count_votes = Counter(all_votes)
-    #print(count_votes)
+    
+    win_value = 0
+    # The percentage of votes each candidate won and creating the rows of results
     for my_key in count_votes:
-        new_list.append([my_key, round(100*(count_votes[my_key]/number_votes), 3), count_votes[my_key]])
-        #new_dict.update({'Candidate' : my_key, 'Percentage votes': round(100*(count_votes[my_key]/number_votes), 3), 'Total votes': count_votes[my_key] })
-        #print(new_list)
-        #print(my_key, ': ', count_votes[my_key])
+        new_list.append(f"{my_key}: {(count_votes[my_key]/number_votes): .3%} ({count_votes[my_key]})")
+        # The winner of the election based on popular vote.
+        if (count_votes[my_key]/number_votes) > win_value:
+            win_value = (count_votes[my_key]/number_votes)
+            winner = f"{my_key}"
+  
 
-
-print("Election Results")
-print("-------------------------")
-print("Total Votes:", number_votes)
+print(f"Election Results")
+print(f"-------------------------")
+print(f"Total Votes: {number_votes}")
+print(f"-------------------------")
 for item in new_list:
-    print(item)
+        print(f"{item}")
+print(f"-------------------------")
+print(f"Winner: {winner}")
+print(f"-------------------------")
+       
+# write the results to a file
+output_path = os.path.join("/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyPoll/", "results_Pypoll.csv")
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w', newline='') as resultsfile_PyPoll:
 
+    # Initialize csv.writer
+    csvwriter = csv.writer(resultsfile_PyPoll, quoting=csv.QUOTE_NONE)
 
-# The percentage of votes each candidate won
+    # Write the content
+    csvwriter.writerow([f"Election Results"])
+    csvwriter.writerow([f"-------------------------"])
+    csvwriter.writerow([f"Total Votes: {number_votes}"])
+    csvwriter.writerow([f"-------------------------"])
+    for item in new_list:
+        csvwriter.writerow([f"{item}"])
+    csvwriter.writerow([f"-------------------------"])
+    csvwriter.writerow([f"Winner: {winner}"])
+    csvwriter.writerow([f"-------------------------"])
+    
 
-
-
-# The winner of the election based on popular vote.
-
-# As an example, your analysis should look similar to the one below:
+# What the output should look like
 
 # Election Results
 # -------------------------
@@ -62,4 +82,4 @@ for item in new_list:
 # -------------------------
 # Winner: Khan
 # -------------------------
-# Save the results
+

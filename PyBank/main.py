@@ -2,7 +2,7 @@ import os
 import csv
 
 # Open and read csv file /Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyBank
-csvpath = os.path.join('/Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyBank/', 'budget_data.csv')
+csvpath = os.path.join('/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyBank/', 'budget_data.csv')
 #try:    
 with open(csvpath, "r" ) as my_file_handle:
     # CSV reader specifies delimiter and variable that holds contents
@@ -44,16 +44,16 @@ with open(csvpath, "r" ) as my_file_handle:
     lowest_profit_month = all_months[lowest_profit_value_index + 1]    
     
     # Print results to the terminal
-    print("Financial Analysis")
-    print("--------------------------------")
-    print("Total months: ", total_months)
-    print("Total: $", net_total_amount)
-    print("Average Change: $", round(average_change, 2))
-    print("Greatest Increase in Profits:", highest_profit_month, "($",highest_profit_value,")")
-    print("Greatest Decrease in Profits:", lowest_profit_month, "($",lowest_profit_value,")")
+    print(f"Financial Analysis")
+    print(f"--------------------------------")
+    print(f"Total months: {total_months}")
+    print(f"Total: ${net_total_amount: .2f}")
+    print(f"Average Change:  ${average_change: .2f}")
+    print(f"Greatest Increase in Profits: {highest_profit_month} (${highest_profit_value})")
+    print(f"Greatest Decrease in Profits: {lowest_profit_month} (${lowest_profit_value})")
 
 # write the results to a file
-output_path = os.path.join("/Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyBank/", "results.csv")
+output_path = os.path.join("/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyBank/", "results.csv")
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w', newline='') as resultsfile:
 
@@ -61,24 +61,15 @@ with open(output_path, 'w', newline='') as resultsfile:
     csvwriter = csv.writer(resultsfile, quoting=csv.QUOTE_NONE)
 
     # Write the content
-    csvwriter.writerow(["Financial Analysis"])
-    csvwriter.writerow(["--------------------------------"])
-    csvwriter.writerow(["Total months: ", total_months])
-    csvwriter.writerow(["Total: $", net_total_amount])
-    csvwriter.writerow(["Average Change: $", round(average_change, 2)])
-    csvwriter.writerow(["Greatest Increase in Profits:", highest_profit_month, "($",highest_profit_value,")"])
-    csvwriter.writerow(["Greatest Decrease in Profits:", lowest_profit_month, "($",lowest_profit_value,")"])
+    csvwriter.writerow([f"Financial Analysis"])
+    csvwriter.writerow([f"--------------------------------"])
+    csvwriter.writerow([f"Total months: {total_months}"])
+    csvwriter.writerow([f"Total:${net_total_amount: .2f}"])
+    csvwriter.writerow([f"Average Change: ${average_change: .2f}"])
+    csvwriter.writerow([f"Greatest Increase in Profits: {highest_profit_month} (${highest_profit_value})"])
+    csvwriter.writerow([f"Greatest Decrease in Profits: {lowest_profit_month} (${lowest_profit_value})"])
 
-    
-
-
-
-
-
-
-
-
-
+"required output"
 
 # Financial Analysis
 # ----------------------------
