@@ -3,7 +3,8 @@ import csv
 from collections import Counter
 
 # Open and read csv file /Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyPoll
-csvpath = os.path.join('/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyBoss/', 'election_data.csv')
+#csvpath = os.path.join('/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyBoss/', 'election_data.csv')
+csvpath = 'election_data.csv'
 #try:    
 with open(csvpath, "r" ) as my_file_handle:
     # CSV reader specifies delimiter and variable that holds contents
