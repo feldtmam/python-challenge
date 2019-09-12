@@ -47,8 +47,8 @@ with open(csvpath, "r" ) as my_file_handle:
     print(f"Financial Analysis")
     print(f"--------------------------------")
     print(f"Total months: {total_months}")
-    print(f"Total: ${net_total_amount: .2f}")
-    print(f"Average Change:  ${average_change: .2f}")
+    print(f"Total: ${net_total_amount:.2f}")
+    print(f"Average Change:  ${average_change:.2f}")
     print(f"Greatest Increase in Profits: {highest_profit_month} (${highest_profit_value})")
     print(f"Greatest Decrease in Profits: {lowest_profit_month} (${lowest_profit_value})")
 
