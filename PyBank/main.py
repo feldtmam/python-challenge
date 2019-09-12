@@ -2,9 +2,9 @@ import os
 import csv
 
 # Open and read csv file /Users/feldtmam1/Documents/Data Analytics Bootcamp/repos/python-challenge/PyBank
-csvpath = os.path.join('/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyBank/', 'budget_data.csv')
+#csvpath = os.path.join('/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyBank/', 'budget_data.csv')
 #try:    
-with open(csvpath, "r" ) as my_file_handle:
+with open('budget_data.csv', "r" ) as my_file_handle:
     # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(my_file_handle, delimiter=',')
     
