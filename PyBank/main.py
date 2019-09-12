@@ -53,7 +53,8 @@ with open('budget_data.csv', "r" ) as my_file_handle:
     print(f"Greatest Decrease in Profits: {lowest_profit_month} (${lowest_profit_value})")
 
 # write the results to a file
-output_path = os.path.join("/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyBank/", "results.csv")
+#output_path = os.path.join("/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyBank/", "results.csv")
+output_path = "results.csv"
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w', newline='') as resultsfile:
 

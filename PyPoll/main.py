@@ -51,7 +51,8 @@ print(f"Winner: {winner}")
 print(f"-------------------------")
        
 # write the results to a file
-output_path = os.path.join("/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyPoll/", "results_Pypoll.csv")
+#output_path = os.path.join("/Users/feldtmam1/Documents/Data_Analytics_Bootcamp/repos/python-challenge/PyPoll/", "results_Pypoll.csv")
+output_path = "results_Pypoll.csv"
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w', newline='') as resultsfile_PyPoll:
 
