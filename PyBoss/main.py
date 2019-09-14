@@ -23,9 +23,9 @@ with open('employee_data.csv', "r" ) as my_file_handle:
         dob = dt.datetime.strptime(rows[2], "%Y-%m-%d").strftime("%m/%d/%Y")
         ssn_split = rows[3].split('-')
         print(ssn_split)
-        #ssn = ssn_split[0].str.replace[, "*"] + ssn_split[1].str.replace["*"] + ssn_split[2]
+        ssn = ssn_split[0].replace(str(ssn_split[0]),"***") + "-" + ssn_split[1].replace(str(ssn_split[1]), "**") + "-" + ssn_split[2]
         #ssn = rows[3].str.replace([:5], "*")
-        print(emp_id, first_name, last_name, dob)
+        print(emp_id, first_name, last_name, dob, ssn)
         
 
 # Then convert and export the data to use the following format instead:
